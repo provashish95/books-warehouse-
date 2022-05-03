@@ -26,7 +26,7 @@ const Header = () => {
                             <CustomLink className=" nav-link" to="/blogs">BLOGS</CustomLink>
                         </li>
                         <li className="nav-item">
-                            <CustomLink className=" nav-link" to="/stationary">STATIONARY</CustomLink>
+                            <CustomLink className=" nav-link" to="/stationary">STATIONARIES</CustomLink>
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
