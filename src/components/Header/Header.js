@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark  navbar-style">
             <div className="container">
-                <Link className="navbar-brand fs-2 " to="/">
+                <Link className="navbar-brand" to="/">
                     BOOKS WAREHOUSE
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
@@ -18,7 +18,6 @@ const Header = () => {
                         <li className="nav-item">
                             <CustomLink className=" nav-link fs-6" aria-current="page" to="/">HOME</CustomLink>
                         </li>
-
                         <li className="nav-item">
                             <CustomLink className="  nav-link" to="/books">BOOKS</CustomLink>
                         </li>

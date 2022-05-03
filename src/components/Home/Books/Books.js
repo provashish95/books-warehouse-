@@ -1,9 +1,13 @@
 import React from 'react';
+import Book from '../Book/Book';
 
 const Books = () => {
     return (
         <div className='container my-5'>
-            <h1>Books here </h1>
+            <h2 className='text-center mb-5 text-color'>BOOKS </h2>
+            <div className="row">
+                <Book></Book>
+            </div>
         </div>
     );
 };
