@@ -11,8 +11,6 @@ const Home = () => {
             <section className='background-img'>
                 <Categories></Categories>
                 <Books></Books>
-                <Books></Books>
-                <Books></Books>
             </section>
         </div>
     );

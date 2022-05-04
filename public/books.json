@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "Online Workout",
+        "price": "2000 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "Provide pre recorded video.Live exercises class time to time.Free consultation,Supplements information guide.And Many Many MORE!",
+        "img": "https://i.ibb.co/Xzy2zC3/online-classes.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Home Assistance",
+        "price": "3000 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "In your home, I will train you.Gym/Home Workout program (with/without equipment).Tips and Explanations.And Many Many MORE!",
+        "img": "https://i.ibb.co/McFnDym/personal-trainer.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Group Workout",
+        "price": "1500 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "In my gym i will train you with my some students.Macro-based diet plan (recipes, calories, macros included).And Many Many MORE!",
+        "img": "https://i.ibb.co/ykHYxY4/img-1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Food and fitness course",
+        "price": "1500 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "In my gym i will train you with my some students.Macro-based diet plan (recipes, calories, macros included).And Many Many MORE!",
+        "img": "https://i.ibb.co/ykHYxY4/img-1.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Group Workout",
+        "price": "1500 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "In my gym i will train you with my some students.Macro-based diet plan (recipes, calories, macros included).And Many Many MORE!",
+        "img": "https://i.ibb.co/ykHYxY4/img-1.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Group Workout",
+        "price": "1500 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "In my gym i will train you with my some students.Macro-based diet plan (recipes, calories, macros included).And Many Many MORE!",
+        "img": "https://i.ibb.co/ykHYxY4/img-1.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Group Workout",
+        "price": "1500 (Per Month)",
+        "quantity": 2,
+        "supplier": "tonmoy roy",
+        "description": "In my gym i will train you with my some students.Macro-based diet plan (recipes, calories, macros included).And Many Many MORE!",
+        "img": "https://i.ibb.co/ykHYxY4/img-1.jpg"
+    }
+]
