@@ -1,0 +1,8 @@
+.category-style {
+    color: #a22828;
+}
+
+.category-style:hover {
+    background-color: #a22828;
+    color: #ffff;
+}

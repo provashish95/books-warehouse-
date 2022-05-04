@@ -3,8 +3,8 @@ import Book from '../Book/Book';
 
 const Books = () => {
     return (
-        <div className='container my-5'>
-            <h2 className='text-center mb-5 text-color'>BOOKS </h2>
+        <div className='container '>
+            <h4 className='text-center my-5 text-color'>BOOKS </h4>
             <div className="row">
                 <Book></Book>
             </div>
