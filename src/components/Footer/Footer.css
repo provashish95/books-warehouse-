@@ -2,13 +2,16 @@
     background-color: #4e2626;
 }
 
+.footer-text {
+    color: #985c5c;
+}
+
 .icon-style {
     width: 30px;
     height: 30px;
-    background-color: #adaaaa;
     padding: 4px;
     border-radius: 50%;
-    font-size: 22px;
-    margin-left: 8px;
+    font-size: 25px;
+    margin-left: 11px;
     cursor: pointer;
 }
