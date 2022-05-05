@@ -49,6 +49,7 @@ const Login = () => {
             createUserWithEmailAndPassword(email, password)
             event.target.reset();
         }
+
     }
     useEffect(() => {
         if (registerUser) {
@@ -94,7 +95,6 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-
     return (
         <div className="container">
             <div className="row w-50 mx-auto my-5">
@@ -122,7 +122,9 @@ const Login = () => {
                                         <label className="form-check-label text-color" htmlFor="exampleCheck1">Agree terms & condition</label>
                                     </div>
                                     <button type="submit" className='btn  btn-style mx-auto d-block mb-5'>Register</button>
-                                    {errorElement}
+                                    {
+                                        agree ? " " : errorElement
+                                    }
                                 </form>
                             </>
                             :
