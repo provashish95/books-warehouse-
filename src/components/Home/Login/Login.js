@@ -97,13 +97,13 @@ const Login = () => {
 
     return (
         <div className="container">
-            <div className="row w-50 mx-auto my-5">
+            <div className="row  my-5 w-50 mx-auto width-sizing">
                 <h5 className='text-center mb-5 text-color'>{agree ? "Registration" : "Login"}</h5>
                 <div className="col">
                     {
                         agree ?
                             <>
-                                <form onSubmit={handleRegister}>
+                                <form onSubmit={handleRegister} >
                                     <div className="mb-3">
                                         <input type="text" className="w-100 rounded input-style py-2 px-2" id="exampleInputName" placeholder='Your Name' required />
                                     </div>
@@ -121,7 +121,7 @@ const Login = () => {
                                         <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                                         <label className="form-check-label text-color" htmlFor="exampleCheck1">Agree terms & condition</label>
                                     </div>
-                                    <button type="submit" className='btn  btn-style mx-auto d-block mb-5'>Register</button>
+                                    <button type="submit" className='btn  btn-style w-50 mx-auto d-block mb-5'>Register</button>
                                     {
                                         agree ? " " : errorElement
                                     }
@@ -129,7 +129,7 @@ const Login = () => {
                             </>
                             :
                             <>
-                                <form onSubmit={handleLogin}>
+                                <form onSubmit={handleLogin} >
                                     <div className="mb-3">
                                         <input type="email" ref={emailRef} name="email" className="w-100 rounded input-style py-2 px-2" id="exampleInputEmail" placeholder='Your Email' required />
                                     </div>
@@ -137,15 +137,15 @@ const Login = () => {
                                         <input type="password" ref={passwordRef} name="password" className="w-100 rounded input-style py-2 px-2" id="exampleInputPassword1" placeholder='Password' required />
                                     </div>
                                     {errorElement}
-                                    <button type="submit" className='btn btn-style mx-auto d-block mb-5'>Login</button>
+                                    <button type="submit" className='btn btn-style w-50 mx-auto d-block mb-5'>Login</button>
                                 </form>
                             </>
                     }
                     {
                         agree ? " " :
-                            <p className='text-color m-0  '>Forget Password ?<span className='btn text-color fst-italic fw-bold' onClick={resetPassword}>Reset Password</span></p>
+                            <p className='width-sizing text-color m-0'>Forget Password ?<span className='btn text-color fst-italic fw-bold' onClick={resetPassword}>Reset Password</span></p>
                     }
-                    <p className='text-color m-0 '>{agree ? "Already have an account ?" : "New to Warehouse ?"} <span onClick={() => setAgree(!agree)} className='btn text-color fst-italic fw-bold'>{agree ? "Please Login" : "Please Register"} </span></p>
+                    <p className='width-sizing text-color m-0 '>{agree ? "Already have an account ?" : "New to Warehouse ?"} <span onClick={() => setAgree(!agree)} className='btn text-color fst-italic fw-bold'>{agree ? "Please Login" : "Please Register"} </span></p>
                     <SocialLogin></SocialLogin>
                     <ToastContainer toastStyle={{
                         marginTop: "4rem",

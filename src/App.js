@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer';
 import Inventories from './components/Home/Inventories/Inventories';
 import Login from './components/Home/Login/Login';
 import RequireAuth from './components/Home/RequireAuth/RequireAuth';
+import ManageInventory from './components/Home/ManageInventory/ManageInventory';
+import AddInventoryItem from './components/Home/AddInventoryItem/AddInventoryItem';
 
 
 function App() {
@@ -22,6 +24,8 @@ function App() {
             <Inventories></Inventories>
           </RequireAuth>
         }></Route>
+        <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/addNewInventory' element={<AddInventoryItem></AddInventoryItem>}></Route>
         <Route path='*' element={<p>NOT FOUND</p>}></Route>
       </Routes>
       <Footer></Footer>

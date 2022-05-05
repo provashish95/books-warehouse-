@@ -5,3 +5,7 @@
     background-size: cover;
     /* background-attachment: fixed; */
 }
+
+.bg-style {
+    background-color: #2C0303;
+}

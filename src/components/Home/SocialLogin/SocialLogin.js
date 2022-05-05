@@ -29,7 +29,7 @@ const SocialLogin = () => {
     }
 
     if (googleError || githubError) {
-        errorElement = <p className='text-danger'>Error: {googleError?.message} {githubError?.message}</p>
+        errorElement = <p className='text-danger w-50 mx-auto'>Error: {googleError?.message} {githubError?.message}</p>
     }
 
 
@@ -42,12 +42,12 @@ const SocialLogin = () => {
             </div>
             {errorElement}
             <div>
-                <button onClick={() => signInWithGoogle()} className='btn btn-style mx-auto d-block w-50 my-2'>
-                    <span className='me-3'><i className="fa-brands fa-google"></i></span>
+                <button onClick={() => signInWithGoogle()} className='btn btn-style w-50 mx-auto d-block my-2 py-2 width-sizing'>
+                    <span className='me-2 fs-6'><i className="fa-brands fa-google"></i></span>
                     <span>Google Login </span>
                 </button>
-                <button onClick={() => signInWithGithub()} className='btn btn-style mx-auto d-block w-50 my-2'>
-                    <span className='me-3'><i className="fa-brands fa-github"></i></span>
+                <button onClick={() => signInWithGithub()} className='btn btn-style w-50 mx-auto d-block my-2 py-2 width-sizing'>
+                    <span className='me-2 fs-6'><i className="fa-brands fa-github"></i></span>
                     <span>Github Login</span>
                 </button>
             </div>

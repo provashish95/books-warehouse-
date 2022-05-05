@@ -21,6 +21,7 @@ const Books = () => {
                     books.map(book => <Book key={book.id} book={book}></Book>)
                 }
             </div>
+            <button className='btn btn-info'>Manage Inventories</button>
         </div>
     );
 };
