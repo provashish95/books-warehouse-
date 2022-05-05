@@ -135,7 +135,7 @@ const Login = () => {
                                         <input type="password" ref={passwordRef} name="password" className="w-100 rounded input-style py-2 px-2" id="exampleInputPassword1" placeholder='Password' required />
                                     </div>
                                     {errorElement}
-                                    <button type="submit" className='btn  btn-style mx-auto d-block mb-5'>Login</button>
+                                    <button type="submit" className='btn btn-style mx-auto d-block mb-5'>Login</button>
                                 </form>
                             </>
                     }
