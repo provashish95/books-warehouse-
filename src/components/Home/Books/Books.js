@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import useBooks from '../../../Hooks/useBooks';
 import Book from '../Book/Book';
+import { useNavigate } from 'react-router-dom';
 
 const Books = () => {
     const [books, setBooks] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
         fetch('books.json')
             .then(res => res.json())
@@ -21,7 +23,7 @@ const Books = () => {
                     books.map(book => <Book key={book.id} book={book}></Book>)
                 }
             </div>
-            <button className='btn btn-info'>Manage Inventories</button>
+            <button onClick={() => navigate('/manageInventory')} className='btn btn-info'>Manage Inventories</button>
         </div>
     );
 };
