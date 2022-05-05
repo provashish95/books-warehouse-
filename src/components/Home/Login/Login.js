@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Login.css';
-import { useCreateUserWithEmailAndPassword, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [agree, setAgree] = useState(false);
     const [userError, setUserError] = useState(' ');
+    const emailRef = useRef("");
+    const passwordRef = useRef("");
+    const confirmPasswordRef = useRef("");
     const [
         createUserWithEmailAndPassword,
         registerUser,
@@ -14,18 +19,20 @@ const Login = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     const [
         signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        loginUser,
+        loginLoading,
+        loginError,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, resetSending, resetError] = useSendPasswordResetEmail(auth);
     let errorElement;
 
 
+    //registration here..............
     const handleRegister = (event) => {
         event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        const confirmPassword = event.target.confirmPassword.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        const confirmPassword = confirmPasswordRef.current.value;
 
         if (password.length < 6) {
             setUserError('Password must be 6 character!');
@@ -37,27 +44,45 @@ const Login = () => {
             event.target.reset();
         }
     }
-
-    if (registerError) {
-        errorElement = <p className='text-danger '>Error: {registerError?.message}</p>
-    }
-
     useEffect(() => {
         if (registerUser) {
             console.log(registerUser);
         }
     }, [registerUser]);
+    //registration here..............
 
 
+    //login here.............
     const handleLogin = (event) => {
         event.preventDefault();
-        const email = event.target.email.value;
-        const password = event.target.password.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
         event.target.reset();
     }
+    useEffect(() => {
+        if (loginUser) {
+            console.log(loginUser);
+        }
+    }, [loginUser])
+    //login here...........
 
+    //Reset password here.........
+    const resetPassword = async () => {
+        const email = emailRef.current.value;
 
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.success('Sent email');
+        } else {
+            toast.error('Please enter your email');
+        }
+    }
+
+    //firebase error here........
+    if (registerError || loginError) {
+        errorElement = <p className='text-danger '>Error: {registerError?.message || loginError?.message}</p>
+    }
 
 
     return (
@@ -73,20 +98,20 @@ const Login = () => {
                                         <input type="text" className="w-100 rounded input-style py-2 px-2" id="exampleInputName" placeholder='Your Name' required />
                                     </div>
                                     <div className="mb-3">
-                                        <input type="email" name="email" className="w-100 rounded input-style py-2 px-2" id="exampleInputEmail" placeholder='Your Email' required />
+                                        <input type="email" ref={emailRef} name="email" className="w-100 rounded input-style py-2 px-2" id="exampleInputEmail" placeholder='Your Email' required />
                                     </div>
                                     <div className="mb-3">
-                                        <input type="password" name="password" className="w-100 rounded input-style py-2 px-2" id="exampleInputPassword1" placeholder='Password' required />
+                                        <input type="password" ref={passwordRef} name="password" className="w-100 rounded input-style py-2 px-2" id="exampleInputPassword1" placeholder='Password' required />
                                     </div>
                                     <div className="mb-3">
-                                        <input type="password" name="confirmPassword" className="w-100 rounded input-style py-2 px-2" id="exampleInputConfirmPassword1" placeholder='Confirm Password' required />
+                                        <input type="password" ref={confirmPasswordRef} name="confirmPassword" className="w-100 rounded input-style py-2 px-2" id="exampleInputConfirmPassword1" placeholder='Confirm Password' required />
                                     </div>
                                     <p className="text-danger ">{userError || ''}</p>
                                     <div className="mb-3 form-check">
                                         <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                                         <label className="form-check-label text-color" htmlFor="exampleCheck1">Agree terms & condition</label>
                                     </div>
-                                    <button type="submit" className='btn  btn-style mx-auto d-block'>Register</button>
+                                    <button type="submit" className='btn  btn-style mx-auto d-block mb-5'>Register</button>
                                     {errorElement}
                                 </form>
                             </>
@@ -94,18 +119,28 @@ const Login = () => {
                             <>
                                 <form onSubmit={handleLogin}>
                                     <div className="mb-3">
-                                        <input type="email" className="w-100 rounded input-style py-2 px-2" id="exampleInputEmail" placeholder='Your Email' required />
+                                        <input type="email" ref={emailRef} name="email" className="w-100 rounded input-style py-2 px-2" id="exampleInputEmail" placeholder='Your Email' required />
                                     </div>
                                     <div className="mb-3">
-                                        <input type="password" className="w-100 rounded input-style py-2 px-2" id="exampleInputPassword1" placeholder='Password' required />
+                                        <input type="password" ref={passwordRef} name="password" className="w-100 rounded input-style py-2 px-2" id="exampleInputPassword1" placeholder='Password' required />
                                     </div>
-                                    <button type="submit" className='btn  btn-style mx-auto d-block'>Login</button>
+                                    {errorElement}
+                                    <button type="submit" className='btn  btn-style mx-auto d-block mb-5'>Login</button>
                                 </form>
                             </>
                     }
-                    <p className='text-color mt-4'>{agree ? "Already have an account?" : "New to Warehouse ?"} <span onClick={() => setAgree(!agree)} className='btn text-color fst-italic fw-bold'> {agree ? "Please Login" : "Please Register"} </span></p>
+                    {
+                        agree ? " " :
+                            <p className='text-color m-0  '>Forget Password?<span className='btn text-color fst-italic fw-bold' onClick={resetPassword}>Reset Password</span></p>
+                    }
+                    <p className='text-color m-0 '>{agree ? "Already have an account ?" : "New to Warehouse ?"} <span onClick={() => setAgree(!agree)} className='btn text-color fst-italic fw-bold'>{agree ? "Please Login" : "Please Register"} </span></p>
+                    <ToastContainer toastStyle={{
+                        marginTop: "4rem",
+                        borderRadius: "20px"
+                    }} />
                 </div>
             </div>
+
         </div>
     );
 };

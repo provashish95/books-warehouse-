@@ -7,6 +7,7 @@ import Footer from './components/Footer/Footer';
 import Inventories from './components/Home/Inventories/Inventories';
 import Login from './components/Home/Login/Login';
 
+
 function App() {
   return (
     <div >
