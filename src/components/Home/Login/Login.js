@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Login = () => {
     const [agree, setAgree] = useState(false);
@@ -140,16 +141,16 @@ const Login = () => {
                     }
                     {
                         agree ? " " :
-                            <p className='text-color m-0  '>Forget Password?<span className='btn text-color fst-italic fw-bold' onClick={resetPassword}>Reset Password</span></p>
+                            <p className='text-color m-0  '>Forget Password ?<span className='btn text-color fst-italic fw-bold' onClick={resetPassword}>Reset Password</span></p>
                     }
                     <p className='text-color m-0 '>{agree ? "Already have an account ?" : "New to Warehouse ?"} <span onClick={() => setAgree(!agree)} className='btn text-color fst-italic fw-bold'>{agree ? "Please Login" : "Please Register"} </span></p>
+                    <SocialLogin></SocialLogin>
                     <ToastContainer toastStyle={{
                         marginTop: "4rem",
                         borderRadius: "20px"
                     }} />
                 </div>
             </div>
-
         </div>
     );
 };

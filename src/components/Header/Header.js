@@ -45,7 +45,6 @@ const Header = () => {
                                     :
                                     <CustomLink className=" nav-link" to="/login">LOGIN</CustomLink>
                             }
-
                         </li>
                     </ul>
                 </div>
