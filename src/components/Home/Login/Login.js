@@ -4,6 +4,8 @@ import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignIn
 import auth from '../../../firebase.init';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const Login = () => {
     const [agree, setAgree] = useState(false);
@@ -11,6 +13,8 @@ const Login = () => {
     const emailRef = useRef("");
     const passwordRef = useRef("");
     const confirmPasswordRef = useRef("");
+    const navigate = useNavigate();
+    const location = useLocation();
     const [
         createUserWithEmailAndPassword,
         registerUser,
@@ -24,6 +28,7 @@ const Login = () => {
         loginError,
     ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, resetSending, resetError] = useSendPasswordResetEmail(auth);
+    let from = location.state?.from?.pathname || "/";
     let errorElement;
 
 
@@ -46,7 +51,7 @@ const Login = () => {
     }
     useEffect(() => {
         if (registerUser) {
-            console.log(registerUser);
+            navigate(from, { replace: true });
         }
     }, [registerUser]);
     //registration here..............
@@ -62,7 +67,7 @@ const Login = () => {
     }
     useEffect(() => {
         if (loginUser) {
-            console.log(loginUser);
+            navigate(from, { replace: true });
         }
     }, [loginUser])
     //login here...........
@@ -80,8 +85,12 @@ const Login = () => {
     }
 
     //firebase error here........
-    if (registerError || loginError) {
-        errorElement = <p className='text-danger '>Error: {registerError?.message || loginError?.message}</p>
+    if (registerError || loginError || resetError) {
+        errorElement = <p className='text-danger '>Error: {registerError?.message || loginError?.message || resetError?.message}</p>
+    }
+    //loading here..........
+    if (registerLoading || loginLoading || resetSending) {
+        return <Loading></Loading>
     }
 
 
