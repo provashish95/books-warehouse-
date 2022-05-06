@@ -17,7 +17,7 @@ const Book = ({ book }) => {
                 <p className="card-text">Price: {book.price}</p>
                 <p className="card-text">Quantity: {book.quantity}</p>
                 <p className="card-text">Supplier Name: {book.supplierName}</p>
-                <button onClick={() => handleBook(book.id)} className='btn btn-style d-block mx-auto'>Manage</button>
+                <button onClick={() => handleBook(book._id)} className='btn btn-style d-block mx-auto'>Manage</button>
             </div>
         </div>
     );
