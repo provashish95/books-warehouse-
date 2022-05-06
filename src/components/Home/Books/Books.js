@@ -7,7 +7,8 @@ const Books = () => {
     const [books, setBooks] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('books.json')
+        const url = `http://localhost:5000/allBooks`;
+        fetch(url)
             .then(res => res.json())
             .then(data => {
                 setBooks(data.slice(0, 6));
