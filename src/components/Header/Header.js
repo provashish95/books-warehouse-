@@ -28,20 +28,41 @@ const Header = () => {
                             <CustomLink className=" nav-link fs-6" aria-current="page" to="/">HOME</CustomLink>
                         </li>
                         <li className="nav-item">
-                            <CustomLink className="  nav-link" to="/books">BOOKS</CustomLink>
-                        </li>
-                        <li className="nav-item">
                             <CustomLink className=" nav-link" to="/blogs">BLOGS</CustomLink>
                         </li>
                         <li className="nav-item">
                             <CustomLink className=" nav-link" to="/stationary">STATIONARIES</CustomLink>
+                        </li>
+                        <li className="nav-item">
+                            {
+                                user ?
+                                    <CustomLink className=" nav-link" to="/manageInventory">MANAGE BOOKS</CustomLink>
+                                    :
+                                    " "
+                            }
+                        </li>
+                        <li className="nav-item">
+                            {
+                                user ?
+                                    <CustomLink className=" nav-link" to="/addNewInventory">ADD BOOK</CustomLink>
+                                    :
+                                    " "
+                            }
+                        </li>
+                        <li className="nav-item">
+                            {
+                                user ?
+                                    <CustomLink className=" nav-link" to="/myItems">MY BOOKS</CustomLink>
+                                    :
+                                    " "
+                            }
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
                             {
                                 user ?
-                                    <CustomLink onClick={handleSignOut} className=" nav-link" to="/login">SIGN OUT</CustomLink>
+                                    <CustomLink onClick={handleSignOut} className=" nav-link" to="/login">LOG OUT</CustomLink>
                                     :
                                     <CustomLink className=" nav-link" to="/login">LOGIN</CustomLink>
                             }
