@@ -1,14 +1,20 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../../firebase.init';
 
 const AddInventoryItem = () => {
+    const [user] = useAuthState(auth);
+
+    console.log(user.email);
 
 
 
     const handleUpload = event => {
         event.preventDefault();
         const name = event.target.name.value;
+        const email = user.email;
         const img = event.target.imgUrl.value;
         const description = event.target.description.value;
         const price = event.target.price.value;
@@ -19,7 +25,7 @@ const AddInventoryItem = () => {
         fetch('http://localhost:5000/uploadBook', {
             method: 'POST',
             body: JSON.stringify({
-                name, img, description, price, quantity, supplierName
+                name, img, description, price, quantity, supplierName, email
             }),
             headers: {
                 'Content-type': 'application/json'
