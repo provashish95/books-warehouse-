@@ -76,43 +76,47 @@ const Inventories = () => {
 
 
     return (
-        <div className='container'>
-            <div className="row my-5">
-                <div className="col-12">
-                    <div className="card mb-3" >
-                        <div className="row g-0 justify-content-center align-items-center">
-                            <div className="col-md-4  text-center py-5">
-                                <img src={book.img} className="img-fluid rounded" alt="..." />
-                            </div>
-                            <div className="col-md-4">
-                                <div className="card-body">
-                                    <h5 className="card-title">{book.name}</h5>
-                                    <p className="card-text">{book.description}</p>
-                                    <p className="card-text"><small className="text-muted">price: {book.price}</small></p>
-                                    <p className="card-text"><small className="text-muted">Quantity: {book.quantity}</small></p>
-                                    <p className="card-text"><small className="text-muted">Supplier Name: {book.supplierName}</small></p>
-                                    <p className="text-center m-0 "> <button onClick={handleQuantity} className='btn btn-style '>{book.quantity === 0 ? "Sold Out" : "Delivery"}</button></p>
+        <div className='background-img'>
+            <div className='container'>
+                <div className="row py-5">
+                    <div className="col-12 mt-4">
+                        <div className="card mb-3" >
+                            <div className="row g-0 justify-content-center align-items-center">
+                                <div className="col-md-4  text-center py-5">
+                                    <img src={book.img} className="img-fluid rounded" alt="..." />
                                 </div>
-                            </div>
-                            <div className="col-md-4 col align-self-center text-center">
-                                <h6 className='my-4'>Restock the item</h6>
-                                <form onSubmit={handleQuantityForm}>
-                                    <div className="mb-3">
-                                        <input type="text" name="newQuantity" className="w-50 rounded input-style py-2 px-2" placeholder='New quantity' required />
+                                <div className="col-md-4">
+                                    <div className="card-body">
+                                        <h5 className="card-title">{book.name}</h5>
+                                        <p className="card-text">{book.description}</p>
+                                        <p className="card-text"><small className="text-muted">price: {book.price}</small></p>
+                                        <p className="card-text"><small className="text-muted">Quantity: {book.quantity}</small></p>
+                                        <p className="card-text"><small className="text-muted">Supplier Name: {book.supplierName}</small></p>
+                                        <p className="text-center m-0 "> <button onClick={handleQuantity} className='btn btn-style '>{book.quantity === 0 ? "Sold Out" : "Delivery"}</button></p>
                                     </div>
-                                    <button type="submit" className="btn btn-style me-2">Restock</button>
-                                </form>
+                                </div>
+                                <div className="col-md-4 col align-self-center text-center mb-4">
+                                    <h6 className='my-4'>Restock the item</h6>
+                                    <form onSubmit={handleQuantityForm}>
+                                        <div className="mb-3">
+                                            <input type="text" name="newQuantity" className="w-50 rounded input-style py-2 px-2" placeholder='New quantity' required />
+                                        </div>
+                                        <button type="submit" className="btn btn-style me-2">Restock</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <p className='text-end m-0 py-4'><Link to="/manageInventory" className='text-decoration-none fs-6 fw-bold link-style'>Manage Inventories <i className="fa-solid fa-arrow-right py-2"></i></Link ></p>
-            <ToastContainer toastStyle={{
-                marginTop: "4rem",
-                borderRadius: "20px"
-            }} />
-        </div >
+                <p className='text-end m-0 py-4'><button onClick={() => navigate('/manageInventory')} className='btn custom-btn '>Manage Inventories</button></p>
+
+                <ToastContainer toastStyle={{
+                    marginTop: "4rem",
+                    borderRadius: "20px"
+                }} />
+            </div >
+        </div>
+
     );
 };
 

@@ -29,7 +29,7 @@ const Books = () => {
                     books.map(book => <Book key={book._id} book={book}></Book>)
                 }
             </div>
-            <p className='text-end m-0 py-4'><Link to="/manageInventory" className='text-decoration-none fs-5 fw-bold link-style'>Manage Inventories <i className="fa-solid fa-arrow-right py-2"></i></Link ></p>
+            <p className='text-end m-0 py-4'><button onClick={() => navigate('/manageInventory')} className='btn custom-btn '>Manage Inventories</button></p>
         </div>
     );
 };

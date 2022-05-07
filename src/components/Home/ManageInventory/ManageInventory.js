@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TableRow from '../Books/TableRow/TableRow';
 import Loading from '../Loading/Loading';
 
@@ -36,13 +36,14 @@ const ManageInventory = () => {
     }
 
     return (
+
         <div className='container'>
             <div className="row my-5 ">
                 <div className="col ">
                     <h5 className='text-center text-color mb-4 '>All Books</h5>
                     <div className='table-responsive'>
                         <table className="table table-hover border border-1 border-dark text-center">
-                            <thead>
+                            <thead className='text-color'>
                                 <tr>
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
@@ -59,8 +60,7 @@ const ManageInventory = () => {
                     </div>
                 </div>
             </div>
-
-            <button onClick={() => navigate('/addNewInventory')} className='btn btn-info'>add new books</button>
+            <p className='text-end m-0 py-4'><button onClick={() => navigate('/addNewInventory')} className='btn custom-btn '>Add New Book</button></p>
         </div>
     );
 };
