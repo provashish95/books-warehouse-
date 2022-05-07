@@ -7,10 +7,6 @@ import auth from '../../../firebase.init';
 const AddInventoryItem = () => {
     const [user] = useAuthState(auth);
 
-    console.log(user.email);
-
-
-
     const handleUpload = event => {
         event.preventDefault();
         const name = event.target.name.value;
