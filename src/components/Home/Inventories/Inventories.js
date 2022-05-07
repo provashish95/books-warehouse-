@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -85,8 +85,6 @@ const Inventories = () => {
                                 <img src={book.img} className="img-fluid rounded" alt="..." />
                             </div>
                             <div className="col-md-4">
-
-
                                 <div className="card-body">
                                     <h5 className="card-title">{book.name}</h5>
                                     <p className="card-text">{book.description}</p>
@@ -97,6 +95,7 @@ const Inventories = () => {
                                 </div>
                             </div>
                             <div className="col-md-4 col align-self-center text-center">
+                                <h6 className='my-4'>Restock the item</h6>
                                 <form onSubmit={handleQuantityForm}>
                                     <div className="mb-3">
                                         <input type="text" name="newQuantity" className="w-50 rounded input-style py-2 px-2" placeholder='New quantity' required />
@@ -108,7 +107,7 @@ const Inventories = () => {
                     </div>
                 </div>
             </div>
-            <button onClick={() => navigate('/manageInventory')} className='btn btn-info'>Manage Inventories</button>
+            <p className='text-end m-0 py-4'><Link to="/manageInventory" className='text-decoration-none fs-6 fw-bold link-style'>Manage Inventories <i className="fa-solid fa-arrow-right py-2"></i></Link ></p>
             <ToastContainer toastStyle={{
                 marginTop: "4rem",
                 borderRadius: "20px"

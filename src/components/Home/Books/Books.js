@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import './Books.css';
 import Book from '../Book/Book';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 
 const Books = () => {
@@ -28,7 +29,7 @@ const Books = () => {
                     books.map(book => <Book key={book._id} book={book}></Book>)
                 }
             </div>
-            <button onClick={() => navigate('/manageInventory')} className='btn btn-info'>Manage Inventories</button>
+            <p className='text-end m-0 py-4'><Link to="/manageInventory" className='text-decoration-none fs-5 fw-bold link-style'>Manage Inventories <i className="fa-solid fa-arrow-right py-2"></i></Link ></p>
         </div>
     );
 };
