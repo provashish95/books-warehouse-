@@ -1,12 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TableRow from '../Books/TableRow/TableRow';
+import Loading from '../Loading/Loading';
 
 const ManageInventory = () => {
+    const [books, setBooks] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const url = `http://localhost:5000/allBooks`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setBooks(data);
+            })
+    }, [])
+
+    if (books.length === 0) {
+        return <Loading></Loading>
+    }
+
+    const handleDelete = id => {
+        const proceed = window.confirm("Are you sure to delete ? ");
+        if (proceed) {
+            const url = `http://localhost:5000/book/${id}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remaining = books.filter(book => book._id !== id);
+                    setBooks(remaining);
+                })
+        }
+    }
+
     return (
         <div className='container'>
-            <h2>manage inventory</h2>
-            <p>This page will show all the inventory items. Will be more than 6 items. You will have more than six inventory items. On the home page, you will show 6. However, on the manage inventory page, you will show every item. Every item will show at least name and other information. And every item will have a delete button. This will delete the item. On the manage inventory page, you can show the inventory items the way you want. (however, you may consider showing the items in a tabular form)</p>
+            <div className="row my-5 ">
+                <div className="col ">
+                    <h5 className='text-center text-color mb-4 '>All Books</h5>
+                    <div className='table-responsive'>
+                        <table className="table table-hover border border-1 border-dark text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    books.map(book => <TableRow key={book._id} book={book} handleDelete={handleDelete}></TableRow>)
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
 
             <button onClick={() => navigate('/addNewInventory')} className='btn btn-info'>add new books</button>
         </div>
