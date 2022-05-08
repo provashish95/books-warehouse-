@@ -20,8 +20,8 @@ const Banner = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3>We give best services</h3>
+                    <p>Our company is our first priority and they are our luck</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -32,8 +32,8 @@ const Banner = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>Trust is our wealth</h3>
+                    <p>We stay always people with good service</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -44,9 +44,9 @@ const Banner = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
+                    <h3>Best warehouse of world</h3>
                     <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        Book is good friend of mind
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
