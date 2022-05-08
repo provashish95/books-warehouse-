@@ -11,6 +11,7 @@ import ManageInventory from './components/Home/ManageInventory/ManageInventory';
 import AddInventoryItem from './components/Home/AddInventoryItem/AddInventoryItem';
 import MyBooks from './components/Home/MyBooks/MyBooks';
 import NotFound from './components/Home/NotFound/NotFound';
+import Blogs from './components/Home/Blogs/Blogs';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         }></Route>
         <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>
         <Route path='/myItems' element={<MyBooks></MyBooks>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
