@@ -30,7 +30,6 @@ const AddInventoryItem = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                //console.log(data.success);
                 toast.success(data.success)
                 event.target.reset()
             });

@@ -53,7 +53,21 @@ const Login = () => {
     }
     useEffect(() => {
         if (registerUser) {
-            navigate(from, { replace: true });
+            const url = `http://localhost:5000/login`;
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: registerUser.user.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                    navigate(from, { replace: true });
+                });
         }
     }, [registerUser]);
     //registration here..............

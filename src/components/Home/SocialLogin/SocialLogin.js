@@ -14,13 +14,41 @@ const SocialLogin = () => {
 
     useEffect(() => {
         if (googleUser) {
-            navigate(from, { replace: true })
+            const url = `http://localhost:5000/login`;
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: googleUser.user.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                    navigate(from, { replace: true });
+                });
         }
     }, [googleUser]);
 
     useEffect(() => {
         if (githubUser) {
-            navigate(from, { replace: true })
+            const url = `http://localhost:5000/login`;
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: githubUser.user.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    localStorage.setItem('accessToken', data.token);
+                    navigate(from, { replace: true });
+                });
         }
     }, [githubUser]);
 
