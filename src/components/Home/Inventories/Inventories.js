@@ -12,7 +12,7 @@ const Inventories = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:5000/book/${id}`;
+        const url = `https://obscure-caverns-72360.herokuapp.com/book/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setBook(data))
@@ -29,7 +29,7 @@ const Inventories = () => {
 
         if (newQuantity > 0) {
             const updateQuantity = newQuantity - 1;
-            fetch(`http://localhost:5000/updateQuantity/${id}`, {
+            fetch(`https://obscure-caverns-72360.herokuapp.com/updateQuantity/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const Inventories = () => {
         if (newQuantity > 0) {
             const updateQuantity = oldQuantity + newQuantity;
 
-            fetch(`http://localhost:5000/updateQuantity/${id}`, {
+            fetch(`https://obscure-caverns-72360.herokuapp.com/updateQuantity/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

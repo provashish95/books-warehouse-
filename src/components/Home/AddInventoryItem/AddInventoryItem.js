@@ -18,7 +18,7 @@ const AddInventoryItem = () => {
         const supplierName = event.target.supplierName.value;
         const email = user.email;
 
-        fetch('http://localhost:5000/uploadBook', {
+        fetch('https://obscure-caverns-72360.herokuapp.com/uploadBook', {
             method: 'POST',
             body: JSON.stringify({
                 name, img, description, price, quantity, supplierName, email

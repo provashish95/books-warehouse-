@@ -53,7 +53,7 @@ const Login = () => {
     }
     useEffect(() => {
         if (registerUser) {
-            const url = `http://localhost:5000/login`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/login`;
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -85,7 +85,7 @@ const Login = () => {
     // -----------token -------------
     useEffect(() => {
         if (loginUser) {
-            const url = `http://localhost:5000/login`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/login`;
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({

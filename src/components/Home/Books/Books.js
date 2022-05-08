@@ -9,7 +9,7 @@ const Books = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:5000/allBooks`;
+        const url = `https://obscure-caverns-72360.herokuapp.com/allBooks`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

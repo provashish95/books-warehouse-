@@ -8,7 +8,7 @@ const ManageInventory = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const url = `http://localhost:5000/allBooks`;
+        const url = `https://obscure-caverns-72360.herokuapp.com/allBooks`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -23,7 +23,7 @@ const ManageInventory = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete ? ");
         if (proceed) {
-            const url = `http://localhost:5000/book/${id}`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/book/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

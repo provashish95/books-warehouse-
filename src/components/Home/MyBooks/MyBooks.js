@@ -10,7 +10,7 @@ const MyBooks = () => {
 
     useEffect(() => {
         if (user !== null) {
-            const url = `http://localhost:5000/myBooks`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/myBooks`;
             fetch(url, {
                 headers: {
                     'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
@@ -32,7 +32,7 @@ const MyBooks = () => {
     const handleDelete = id => {
         const proceed = window.confirm("Are you sure to delete ? ");
         if (proceed) {
-            const url = `http://localhost:5000/book/${id}`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/book/${id}`;
             fetch(url, {
                 method: "DELETE"
             })

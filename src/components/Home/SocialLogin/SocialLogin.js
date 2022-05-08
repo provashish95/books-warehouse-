@@ -14,7 +14,7 @@ const SocialLogin = () => {
 
     useEffect(() => {
         if (googleUser) {
-            const url = `http://localhost:5000/login`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/login`;
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -34,7 +34,7 @@ const SocialLogin = () => {
 
     useEffect(() => {
         if (githubUser) {
-            const url = `http://localhost:5000/login`;
+            const url = `https://obscure-caverns-72360.herokuapp.com/login`;
             fetch(url, {
                 method: 'POST',
                 body: JSON.stringify({
