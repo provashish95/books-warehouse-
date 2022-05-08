@@ -67,11 +67,34 @@ const Login = () => {
         signInWithEmailAndPassword(email, password);
         event.target.reset();
     }
+
+    // -----------token -------------
     useEffect(() => {
         if (loginUser) {
-            navigate(from, { replace: true });
+            //01.25.50 minit of video of conceptual session
+            // navigate(from, { replace: true });
+            const url = `http://localhost:5000/login`;
+            fetch(url, {
+                method: 'POST',
+                body: JSON.stringify({
+                    email: loginUser.user.email
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log(data);
+                    localStorage.setItem('accessToken', data.token);
+                    navigate(from, { replace: true });
+                });
+
         }
-    }, [loginUser])
+    }, [loginUser]);
+    // -----------token -------------
+
+
     //login here...........
 
     //Reset password here.........
