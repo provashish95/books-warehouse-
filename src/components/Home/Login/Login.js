@@ -71,8 +71,6 @@ const Login = () => {
     // -----------token -------------
     useEffect(() => {
         if (loginUser) {
-            //01.25.50 minit of video of conceptual session
-            // navigate(from, { replace: true });
             const url = `http://localhost:5000/login`;
             fetch(url, {
                 method: 'POST',
@@ -85,7 +83,6 @@ const Login = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    //console.log(data);
                     localStorage.setItem('accessToken', data.token);
                     navigate(from, { replace: true });
                 });
@@ -93,8 +90,6 @@ const Login = () => {
         }
     }, [loginUser]);
     // -----------token -------------
-
-
     //login here...........
 
     //Reset password here.........

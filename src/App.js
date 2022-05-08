@@ -9,6 +9,7 @@ import Login from './components/Home/Login/Login';
 import RequireAuth from './components/Home/RequireAuth/RequireAuth';
 import ManageInventory from './components/Home/ManageInventory/ManageInventory';
 import AddInventoryItem from './components/Home/AddInventoryItem/AddInventoryItem';
+import MyBooks from './components/Home/MyBooks/MyBooks';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/myItems' element={<MyBooks></MyBooks>}></Route>
         <Route path='*' element={<p>NOT FOUND</p>}></Route>
       </Routes>
       <Footer></Footer>

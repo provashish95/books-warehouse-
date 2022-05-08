@@ -24,11 +24,13 @@ const AddInventoryItem = () => {
                 name, img, description, price, quantity, supplierName, email
             }),
             headers: {
+                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
                 'Content-type': 'application/json'
             },
         })
             .then((response) => response.json())
             .then((data) => {
+                //console.log(data.success);
                 toast.success(data.success)
                 event.target.reset()
             });
