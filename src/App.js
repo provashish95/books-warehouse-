@@ -12,6 +12,7 @@ import AddInventoryItem from './components/Home/AddInventoryItem/AddInventoryIte
 import MyBooks from './components/Home/MyBooks/MyBooks';
 import NotFound from './components/Home/NotFound/NotFound';
 import Blogs from './components/Home/Blogs/Blogs';
+import AddStationaryItem from './components/Home/AddStationaryItem/AddStationaryItem';
 
 
 function App() {
@@ -22,14 +23,19 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='inventory/:id' element={
+        <Route path='/inventory/:id' element={
           <RequireAuth>
             <Inventories></Inventories>
           </RequireAuth>
         }></Route>
-        <Route path='addNewInventory' element={
+        <Route path='/addNewInventory' element={
           <RequireAuth>
             <AddInventoryItem></AddInventoryItem>
+          </RequireAuth>
+        }></Route>
+        <Route path='/addStationaryItem' element={
+          <RequireAuth>
+            <AddStationaryItem></AddStationaryItem>
           </RequireAuth>
         }></Route>
         <Route path='/manageInventory' element={<ManageInventory></ManageInventory>}></Route>

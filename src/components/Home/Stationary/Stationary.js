@@ -1,40 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Stationary.css';
+import StationaryItem from '../StationaryItem/StationaryItem';
 
 const Stationary = () => {
+    const [stationaryItems, setStationaryItems] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const url = ` https://obscure-caverns-72360.herokuapp.com/stationaryItems`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setStationaryItems(data.slice(0, 6));
+            })
+    }, []);
 
 
-    const handleStationary = () => {
-        console.log('hi');
-    }
     return (
         <div className="container">
             <div className="row py-5">
                 <h4 className='text-center text-color mb-5'>STATIONARY ITEMS</h4>
-                <div className="card mx-auto border-style shadow-lg p-3 mb-5 bg-body" style={{ width: '18rem' }}>
-                    <img src="https://i.ibb.co/ykHYxY4/img-1.jpg" className="border-style img-fluid card-img-top" alt="..." />
-                    <div className="card-body text-color text-center">
-                        <p className="card-title text-white">NAME</p>
-                    </div>
-                </div>
-
-
-                <div className="card mx-auto border-style shadow-lg p-3 mb-5 bg-body" style={{ width: '18rem' }}>
-                    <img src="https://i.ibb.co/ykHYxY4/img-1.jpg" className="border-style img-fluid card-img-top" alt="..." />
-                    <div className="card-body text-color text-center">
-                        <p className="card-title text-white">NAME</p>
-                    </div>
-                </div>
-
-
-                <div className="card mx-auto border-style shadow-lg p-3 mb-5 bg-body" style={{ width: '18rem' }}>
-                    <img src="https://i.ibb.co/ykHYxY4/img-1.jpg" className="border-style img-fluid card-img-top" alt="..." />
-                    <div className="card-body text-color text-center">
-                        <p className="card-title text-white">NAME</p>
-                    </div>
-                </div>
-
-
+                {
+                    stationaryItems.map(stationaryItem => <StationaryItem key={stationaryItem._id} stationaryItem={stationaryItem}></StationaryItem>)
+                }
             </div>
         </div>
     );
