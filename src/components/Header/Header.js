@@ -30,9 +30,7 @@ const Header = () => {
                         <li className="nav-item">
                             <CustomLink className=" nav-link" to="/blogs">BLOGS</CustomLink>
                         </li>
-                        <li className="nav-item">
-                            <CustomLink className=" nav-link" to="/stationary">STATIONARIES</CustomLink>
-                        </li>
+
                         <li className="nav-item">
                             {
                                 user ?
