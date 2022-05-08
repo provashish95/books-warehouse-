@@ -9,14 +9,14 @@ const AddInventoryItem = () => {
 
     const handleUpload = event => {
         event.preventDefault();
+
         const name = event.target.name.value;
-        const email = user.email;
         const img = event.target.imgUrl.value;
         const description = event.target.description.value;
         const price = event.target.price.value;
         const quantity = event.target.quantity.value;
         const supplierName = event.target.supplierName.value;
-
+        const email = user.email;
 
         fetch('http://localhost:5000/uploadBook', {
             method: 'POST',
@@ -33,8 +33,8 @@ const AddInventoryItem = () => {
                 toast.success(data.success)
                 event.target.reset()
             });
-    }
 
+    }
 
     return (
         <div className='background-img'>
@@ -50,7 +50,7 @@ const AddInventoryItem = () => {
                                 <input type="text" name="imgUrl" className="w-100 rounded input-style py-2 px-2" id="exampleInputImgUrl" placeholder='Img Url' required />
                             </div>
                             <div className="form-floating">
-                                <textarea name="description" className="input-style w-100 rounded px-2" placeholder="Description about book" id="floatingTextarea2" style={{ height: '100px' }}></textarea>
+                                <textarea name="description" className="input-style w-100 rounded px-2" placeholder="Description about book" id="floatingTextarea2" style={{ height: '100px' }} required></textarea>
                             </div>
                             <div className="mb-3">
                                 <input type="text" name="price" className="w-100 rounded input-style py-2 px-2" id="exampleInputPrice" placeholder='Price' required />
