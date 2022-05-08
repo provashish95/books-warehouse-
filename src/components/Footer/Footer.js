@@ -10,7 +10,7 @@ const Footer = () => {
                     <div className="col-sm-12 col-md-4 col-lg-4 ">
                         <div className='footer-text'>
                             <h6>ABOUT US</h6>
-                            <p>text-center Lorem ipsum dolor sit amet consectetur adipisicingext-center Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, illum.</p>
+                            <p>Books warehouse that stores books & stationary items in a warehouse knows that effective management is the difference between fulfilling customer orders quickly and accurately while keeping costs down versus hearing complaints about delayed or inaccurate shipments and higher operating costs.</p>
                             <span><i className="fa-solid fa-envelope "></i> bookswarehouse@gmail.com</span>
                             <p><i className="fa-solid fa-phone"></i> 01632544810</p>
                         </div>
@@ -19,7 +19,9 @@ const Footer = () => {
                     <div className="col-sm-12 col-md-4 col-lg-4 ">
                         <div className='footer-text'>
                             <h6>ADDRESS</h6>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, aliquid.Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, aliquid.</p>
+                            <p>Books Warehouse, Sukrabad-102 .Rose View Plaza (7th Floor, Room-808)
+                                185 Elephant Road, Hatirpool
+                                Dhaka-1205, Bangladesh</p>
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-4 col-lg-4 ">
