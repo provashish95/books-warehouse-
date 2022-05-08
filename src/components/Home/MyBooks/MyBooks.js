@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
-import TableRow from '../Books/TableRow/TableRow';
+import TableRow from '../TableRow/TableRow';
 import Loading from '../Loading/Loading';
-import './MyBooks.css';
 
 const MyBooks = () => {
-    const [user] = useAuthState(auth);
+    const [user, loading, error] = useAuthState(auth);
     const [myBooks, setMyBooks] = useState([]);
 
     useEffect(() => {
-        const url = `http://localhost:5000/myBooks`;
-        fetch(url, {
-            headers: {
-                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
-            },
-        })
-            .then(res => res.json())
-            .then(data => setMyBooks(data))
+        if (user !== null) {
+            const url = `http://localhost:5000/myBooks`;
+            fetch(url, {
+                headers: {
+                    'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
+                },
+            })
+                .then(res => res.json())
+                .then(data => setMyBooks(data))
+        }
+    }, [user]);
 
-    }, [user.email]);
 
-
-
+    if (loading || error) {
+        return <Loading></Loading>
+    }
     if (myBooks.length === 0) {
         return <Loading></Loading>
     }
@@ -54,6 +56,8 @@ const MyBooks = () => {
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Supplier Name</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>

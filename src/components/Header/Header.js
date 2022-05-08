@@ -28,10 +28,6 @@ const Header = () => {
                             <CustomLink className=" nav-link fs-6" aria-current="page" to="/">HOME</CustomLink>
                         </li>
                         <li className="nav-item">
-                            <CustomLink className=" nav-link" to="/blogs">BLOGS</CustomLink>
-                        </li>
-
-                        <li className="nav-item">
                             {
                                 user ?
                                     <CustomLink className=" nav-link" to="/manageInventory">MANAGE BOOKS</CustomLink>
@@ -54,6 +50,9 @@ const Header = () => {
                                     :
                                     " "
                             }
+                        </li>
+                        <li className="nav-item">
+                            <CustomLink className=" nav-link" to="/blogs">BLOGS</CustomLink>
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">

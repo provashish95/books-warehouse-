@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import TableRow from '../Books/TableRow/TableRow';
+import { useNavigate } from 'react-router-dom';
+import TableRow from '../TableRow/TableRow';
 import Loading from '../Loading/Loading';
 
 const ManageInventory = () => {
@@ -48,6 +48,8 @@ const ManageInventory = () => {
                                     <th scope="col">Name</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Supplier Name</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
