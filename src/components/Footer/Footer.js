@@ -41,7 +41,7 @@ const Footer = () => {
                 <div className="row ">
                     <div className='col-12 '>
                         <div className="text-center footer-text">
-                            &copy; Copyright {date} | Books Warehouse
+                            &copy; Copyright {date} | Books Warehouse by provashish
                         </div>
                     </div>
                 </div>
